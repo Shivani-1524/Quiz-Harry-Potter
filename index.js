@@ -67,5 +67,26 @@ let Quiz = [
       }
     }
   }
+
+  function feedback(){
+    
+    console.log('\n How was the quiz ? Share your feedback');
+    console.log('\n press z and x to toggle the values and spacebar to confirm value');
+    console.log('\n' + (new Array(20)).join(' ') +
+      '[Z] <- -> [X]  FIX: [SPACE]\n');
+    while (true) {
+      console.log('\x1B[1A\x1B[K|' +
+        (new Array(value + 1)).join('-') + 'O' +
+        (new Array(MAX - value + 1)).join('-') + '| ' + value);
+      key = readlineSync.keyIn('',
+        {hideEchoBack: true, mask: '', limit: 'zx '});
+      if (key === 'z') { if (value > MIN) { value--; } }
+      else if (key === 'x') { if (value < MAX) { value++; } }
+      else { break; }
+    }
+    console.log('\nFeedback from user: ' + value);
+    ratings.push(value); // i know that it doesent work like that but i dont really have a database yet.
+    }
   
   StartQuiz();  
+  feedback();
