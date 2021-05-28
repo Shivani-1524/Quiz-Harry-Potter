@@ -39,4 +39,33 @@ let Quiz = [
       score: 7
     },
   ]
+
+  function StartQuiz(){
+    let yourscore = 0
+    let userName = readlineSync.question("Whats your name? ");
+    console.log("Welcome "+ userName + ", to a Quiz on Harry Potter");
+    console.log(chalk.yellowBright.bold("RULES: +2 => right answer AND -1 => wrong answer"))
+    for(let i=0; i < Quiz.length; i++){
+      index = readlineSync.keyInSelect(Quiz[i].answers, Quiz[i].question);
+      if(index === Quiz[i].correct ){
+        yourscore=yourscore+2;
+        console.log(chalk.greenBright.bold("correct answer!! your score: ",yourscore));
+      }
+      else{
+        yourscore=yourscore-1;
+        console.log(chalk.redBright.bold("wrong answer!! your score: ",yourscore));
+        console.log(chalk.redBright.bold("the correct answer is: ",Quiz[i].answer[index]));
+      }
+    }
   
+    console.log(chalk.greenBright.bold("YAY!! FINAL SCORE: ",yourscore));
+  
+    for(let j=0; j < highscores.length; j++){
+      if(highscores[j].score < yourscore){
+        console.log(chalk.cyanBright.bgYellow.bold.underline("ITS A HIGHSCORE !! congratulations ", userName));
+        return console.log(chalk.blueBright.bold.italic("send a screenshot to be added to the leaderboard"));
+      }
+    }
+  }
+  
+  StartQuiz();  
