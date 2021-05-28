@@ -1,4 +1,5 @@
-var readlineSync = require('readline-sync');
+var readlineSync = require('readline-sync'),
+MAX = 10, MIN = 0, value = 5, key;
 const chalk = require('chalk');
 
 let Quiz = [
@@ -93,7 +94,7 @@ let Quiz = [
     else{
         return console.log("sorry, do drop a comment on ways to improve this app. Thank you !!");
     }
-    }
+ }
   
   StartQuiz();  
   feedback();
