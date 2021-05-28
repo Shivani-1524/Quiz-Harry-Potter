@@ -54,7 +54,7 @@ let Quiz = [
       else{
         yourscore=yourscore-1;
         console.log(chalk.redBright.bold("wrong answer!! your score: ",yourscore));
-        console.log(chalk.redBright.bold("the correct answer is: ",Quiz[i].answer[index]));
+        console.log(chalk.redBright.bold("the correct answer is: ",Quiz[i].answers[index]));
       }
     }
   
