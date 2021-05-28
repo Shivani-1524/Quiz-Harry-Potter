@@ -84,8 +84,15 @@ let Quiz = [
       else if (key === 'x') { if (value < MAX) { value++; } }
       else { break; }
     }
-    console.log('\nFeedback from user: ' + value);
-    ratings.push(value); // i know that it doesent work like that but i dont really have a database yet.
+    if(value===10){
+        return console.log("glad you had fun :)");
+    }
+    else if(value > 5){
+        return console.log("will try improving your experience");
+    }
+    else{
+        return console.log("sorry, do drop a comment on ways to improve this app. Thank you !!");
+    }
     }
   
   StartQuiz();  
